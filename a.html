@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html ng-app="store">
-	<head>
-		<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css" />
-	</head>
-	<body ng-controller="StoreController as store">
-		<p>
-			I am {{4 + 6}}
-		</p>
-		<p>
-			{{"hello" + " you"}}
-		</p>
-		<div ng-repeat="product in store.products" ng-hide="store.product.soldOut">
-			<h1> {{product.name}} </h1>
-			<h2> {{product.price | currency}} </h2>
-			<p> {{product.description}} </p>
-			<button ng-show="product.canPurchase"> Add to Cart </button>
-		</div>
-		<script type="text/javascript" src="angular.min.js"></script>
-		<script type="text/javascript" src="app.js"></script>
-	</body>
+<head>
+	<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css" />
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-controller="StoreController as store">
+	<ul class="list-group">
+		<li class="list-group-item" ng-repeat="product in store.products">
+			<h3>
+				{{product.name}}
+				<em class="pull-right">$ {{product.price}}</em>
+				<h1> {{product.name}} </h1>
+				<h2> {{product.price | currency}} </h2>
+				<p> {{product.description}} </p>
+				<img ng-src="{{product.images[0].full}}"/>
+				<button ng-show="product.canPurchase"> Add to Cart </button>
+			</h3>
+			<section ng-init="tab = 1">>
+				<ul class="nav nav-pills">
+					<li ng-class="{ active:tab === 1 }"> 
+						<a href ng-click="tab = 1">Description</a> 
+					</li>
+					<li ng-class="{ active:tab === 2 }"> 
+						<a href ng-click="tab = 2">Specifications</a> 
+					</li>
+					<li ng-class="{ active:tab === 3 }"> 
+						<a href ng-click="tab = 3">Reviews</a> 
+					</li>
+				</ul>
+				{{tab}}
+			</section>
+			<div class="panel" ng-show="tab === 1">
+				<h4>Description</h4>
+				<p>{{product.description}}</p>
+			</div>
+			<div class="panel" ng-show="tab === 2">
+				<h4>Specifications</h4>
+				<p>Not Yet</p>
+			</div>
+			<div class="panel" ng-show="tab === 3">
+				<h4>Reviews</h4>
+				<p>Not Yet</p>
+			</div>
+		</li>
+	</ul>
+</body>
 </html>
