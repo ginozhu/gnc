@@ -15,6 +15,10 @@
 		};
 	});
 
+	app.controller("ReviewController", function(){
+		this.review = {};
+	});
+	
 	var gem = {
 		name: 'Dodecahedron',
 		price: 2.95,
