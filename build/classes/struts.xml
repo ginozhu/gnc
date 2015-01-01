@@ -26,7 +26,7 @@
                 <param name="namespace">/</param>
             </result>
         </action>
-          <action name="sum" class="zfw.mvc.actions.TestAction">
+          <action name="sum" class="gnc.mvc.actions.TestAction">
               <result name="positive">/positive.jsp</result>
               <result name="negative">/negative.jsp</result>
           </action>

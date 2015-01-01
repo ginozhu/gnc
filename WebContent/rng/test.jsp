@@ -1,9 +1,17 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <html ng-app="store">
 <head>
 	<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css" />
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
+	<script>
+	function changetext(id) {
+		id.innerHTML = "谢谢!";
+	}
+	</script>
 </head>
 <body ng-controller="StoreController as store">
 	<div class="container">
@@ -86,6 +94,15 @@
 				</section>
 			</li>
 		</ul>
-	</div>
+		add operands
+		<br/>
+		<s:form action="mystruts/sum.action">
+			<s:textfield name="operand1" label=" operand1" />
+			<s:textfield name="operand2" label=" operand2" />
+			<s:submit value="sum" />
+		</s:form>
+</div>
+
+<h1 onclick="changetext(this)">click me</h1>
 </body>
 </html>

@@ -5,13 +5,13 @@
 
 <html>
 <head>
-<title>输入操作数</title>
+	<title>输入操作数</title>
 
-<script>
+	<script>
 	function changetext(id) {
 		id.innerHTML = "谢谢!";
 	}
-</script>
+	</script>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 		<s:submit value="代数和" />
 	</s:form>
 
-	<h1 onclick="changetext(this)">请点击该文本</h1>
+<h1 onclick="changetext(this)">请点击该文本</h1>
 
 </body>
 </html>
